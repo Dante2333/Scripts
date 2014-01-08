@@ -1,0 +1,48 @@
+#/bin/bash
+#
+echo "This scripts helps to install or uninstall a manual installed omxplayer"
+read -p "Do you want to install or uninstall omxplayer with this script?:(install/uninstall): " verif
+
+if [[ "$verif" = "install" ]]; then 
+	
+	verif1=0
+	test -e /usr/bin/wget && ((verif1++)) #verifies if wget is installed
+	
+	if [[ $verif1 -eq 1 ]]; then
+		echo "You have wget"
+	else
+		echo "We have to install wget"
+		sudo pacman -S wget
+	fi
+	echo "We also need root permission so we can copy the files from omxplayer"
+	echo "Note: this should work for any deb file but will need to be modified"
+	echo "Please, empty this folder so there's only 1 deb after the download"
+	echo "First we're gonna uninstall any omxplayer that you may have, pardon me sir."
+
+	sudo pacman -Rs omxplayer
+
+	read -p "Now Give me the link so i can download the deb for you: " link #reads the link you put
+
+	wget $link #downloading the .deb
+	ar vx *.deb #decompressiong of .deb
+	tar -xJf data.tar.xz #decompressing of tar.xz
+	rm control.tar.gz #removing files that we dont need
+	rm debian-binary #removing other files that we dont need
+	rm data.tar.xz #removing other files that we dont need
+	rm *.deb #removes the deb file that we downloaded.
+	sudo cp -r usr / #copy respective files to /usr/bin so you can run the program with just omxplayer
+
+	echo "We are done, you're such a good master. Good evening"
+
+elif [[ "$verif" = "uninstall" ]]; then
+
+	sudo rm /usr/bin/omxplayer
+	sudo rm /usr/bin/omxplayer.bin
+	sudo rm -r /usr/lib/omxplayer
+	sudo rm -r /usr/share/doc/omxplayer
+	echo "Everything should be fine now"
+	exit
+
+fi
+
+
