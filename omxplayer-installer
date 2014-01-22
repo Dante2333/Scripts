@@ -29,9 +29,9 @@ if [[ "$verif" = "install" ]]; then
 	rm control.tar.gz #removing files that we dont need
 	rm debian-binary #removing other files that we dont need
 	rm data.tar.xz #removing other files that we dont need
-	rm *.deb #removes the deb file that we downloaded.
+	#rm *.deb #removes the deb file that we downloaded.
 	sudo cp -r usr / #copy respective files to /usr/bin so you can run the program with just omxplayer
-
+        rm -r usr/
 	echo "We are done, you're such a good master. Good evening"
 
 elif [[ "$verif" = "uninstall" ]]; then
