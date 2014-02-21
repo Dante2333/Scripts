@@ -1,0 +1,4 @@
+#/bin/zsh
+echo "Remember to verify that .avi and .srt have the same name"
+
+mencoder $1.avi -sub $1.srt -o $1.hardcoded.avi -oac copy -ovc lavc -lavcopts vbitrate=1200 -subfont-text-scale 2; echo "My job is done master"
