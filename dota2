@@ -1,0 +1,4 @@
+#/bin/zsh
+
+a=`pidof dota_linux`
+sudo renice -n -20 -p $a
