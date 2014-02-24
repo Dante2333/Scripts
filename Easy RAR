@@ -1,0 +1,3 @@
+#bin/zsh
+rar a -r -rr10 $HOME/$1.rar $1
+echo "My job is done"
