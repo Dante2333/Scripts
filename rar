@@ -1,3 +1,5 @@
-#bin/zsh
+#bin/sh
 rar a -r -rr10 $HOME/$1.rar $1
 echo "My job is done"
+
+#obviously you need to have rar installed on your system.
