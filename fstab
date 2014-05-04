@@ -1,0 +1,12 @@
+# 
+# /etc/fstab: static file system information
+#
+# <file system>	<dir>	<type>	<options>	<dump>	<pass>
+/dev/mmcblk0p1  /boot           vfat    defaults        0       0
+#USB DTSE9
+UUID=d5e4096d-12c1-46d5-8c5e-22581e46d467 none	swap 	defaults,noatime,discard 	0 	0
+UUID=8849570f-8b0e-4842-ad55-2b0a8595484e /var f2fs 	defaults,noatime,discard	0	0
+#USB DTSE3
+UUID=b7a8dcf7-8d84-4241-b4e1-e8649884d181 /tmp f2fs 	defaults,noatime,discard 	0	0
+#External HDD
+UUID=94d9f5b1-317b-4be3-83b3-d770bf820720 /home/one/Media ext4 defaults,noatime,discard 0	0 
