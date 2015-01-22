@@ -9,9 +9,9 @@ Cuestionario:
 4)
 
 syms x; syms y;
-%yprima=input('Introduzca Funcion: ');
+yprima=input('Introduzca Funcion: ');
 yp = input('Valor inicial de y evaluada en p1')
-%ps = input('Valores del vector x')
+ps = input('Valores del vector x')
 i=numel(ps)
 delta = ps(2)-ps(1);
 iterador2=0;
