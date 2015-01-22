@@ -16,3 +16,28 @@ while i ~ 0
     yp=yn
     i = i-1;
 end
+
+
+%Rung Kutta-4
+syms x; syms y;
+%yprima=input('Introduzca Funcion: ');
+yprima = 0.5*(1+x)*y^2
+%=input('Iteraciones: ');
+%yp = input('Valor inicial de y evaluada en p1')
+%ps = input('Valores del vector x')
+ps = [0 0.1 0.2 0.3 0.4 0.5]
+i = numel(ps)
+delta = ps(2)-ps(1);
+yp=1;
+iterador2=0;
+while i ~ 0
+    iterador2=iterador2+1
+    k1=subs(yprima,{x,y},{ps(iterador2),yp})
+    k2=subs(yprima,{x,y},{(ps(iterador2)+delta/2),yp+(0.5*k1*delta)})
+    k3=subs(yprima,{x,y},{(ps(iterador2)+delta/2),(yp+(delta*0.5*k2))})
+    k4=subs(yprima,{x,y},{(ps(iterador2)+delta),yp+(delta*k3)}
+    theta=(1/6)*(k1+2*k2+2*k3+k4);
+    yn=yp+theta*delta;
+    yp=yn;
+    i = i-1;
+end
