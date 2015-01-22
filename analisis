@@ -2,10 +2,10 @@ syms x; syms y;
 %yprima=input('Introduzca Funcion: ');
 yprima = 0.5*(1+x)*y^2
 %i=input('Iteraciones: ');
-i = 1
 %yp = input('Valor inicial de y evaluada en p1')
 yp=1;
 %ps = input('Valores del vector x')
+i=numel(ps)
 ps = [0 0.1 0.2 0.3 0.4 0.5]
 %delta = input('Dame el valor de h')
 delta = ps(2)-ps(1);
