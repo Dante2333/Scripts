@@ -1,13 +1,18 @@
+Cuestionario:
+
+1) La solución analítica es un resultado real y más aproximado que la solución numérica. La solución numérica es utilizada cuando no podemos calcular una solución analítica.
+
+2) El método de euler utiliza una aproximación entre dos puntos, mientras que runge-kutta toma una aproximación de más valores para luego utilizar el método de euler con ese valor.
+
+3)
+
+4)
+
 syms x; syms y;
 %yprima=input('Introduzca Funcion: ');
-yprima = 0.5*(1+x)*y^2
-%i=input('Iteraciones: ');
-%yp = input('Valor inicial de y evaluada en p1')
-yp=1;
+yp = input('Valor inicial de y evaluada en p1')
 %ps = input('Valores del vector x')
-ps = [0 0.1 0.2 0.3 0.4 0.5]
 i=numel(ps)
-%delta = input('Dame el valor de h')
 delta = ps(2)-ps(1);
 iterador2=0;
 while i ~ 0
@@ -16,28 +21,128 @@ while i ~ 0
     yp=yn
     i = i-1;
 end
+Problema 1:
 
-
-%Rung Kutta-4
 syms x; syms y;
-%yprima=input('Introduzca Funcion: ');
-yprima = 0.5*(1+x)*y^2
-%=input('Iteraciones: ');
-%yp = input('Valor inicial de y evaluada en p1')
-%ps = input('Valores del vector x')
-ps = [0 0.1 0.2 0.3 0.4 0.5]
+yprima = (y/x) - (y/x)^2
+ps = [1 1.1 1.2 1.3]
 i = numel(ps)
 delta = ps(2)-ps(1);
 yp=1;
 iterador2=0;
 while i ~ 0
     iterador2=iterador2+1
+    yn=subs(yprima,{x,y},{ps(iterador2),yp})*delta+yp
+    yp=yn
+    i = i-1;
+end
+real = 1/(1+log(1.3))
+error = (real-yp)/real
+error = (real-yp)/real * 100
+
+error =
+
+ -31.098388863785349
+
+yp =
+
+   1.038514734248178
+
+real =
+
+   0.792164376121527
+
+Problema 2:
+
+syms x; syms y;
+yprima = x*exp(3*x)-2*y
+ps = [0 0.25 0.50 0.75]
+i = numel(ps)
+delta = ps(2)-ps(1);
+yp=0;
+iterador2=0;
+while i ~ 0
+    iterador2=iterador2+1
+    k1=subs(yprima,{x,y},{ps(iterador2),yp});
+    k2=subs(yprima,{x,y},{(ps(iterador2)+delta/2),yp+(0.5*k1*delta)});
+    k3=subs(yprima,{x,y},{(ps(iterador2)+delta/2),(yp+(delta*0.5*k2))});
+    k4=subs(yprima,{x,y},{(ps(iterador2)+delta),yp+(delta*k3)});
+    theta=(1/6)*(k1+2*k2+2*k3+k4);
+    yn=yp+theta*delta
+    yp=yn
+    i = i-1;
+end
+
+real = ((1/5)*x*exp(3*x))-((1/25)*exp(3*x))+((1/25)*exp(-2*x))
+error = abs((real-yp)/real)
+
+error =
+
+     206.4904307076341
+
+yp =
+
+   3.226045170773461
+
+
+real =
+
+   1.052576148405375
+
+Problema 3:
+
+syms x; syms y;
+yprima = y/x
+ps = [1 1.5]
+i = numel(ps)
+delta = ps(2)-ps(1);
+yp=2;
+iterador2=0;
+while i ~ 0
+    iterador2=iterador2+1
+    yn=subs(yprima,{x,y},{ps(iterador2),yp})*delta+yp
+    yp=yn
+    i = i-1;
+end
+
+real=1.5*log(1.5)+2*1.5
+error = abs((real-yp)/real)*100
+
+error =
+
+  10.858671683827939
+
+yp =
+
+     4
+
+real =
+
+   3.608197662162246
+
+Problema 4:
+
+syms x; syms y;
+yprima = -2*y+x^2
+ps = [1 1.5 2]
+i = numel(ps)
+delta = ps(2)-ps(1);
+yp=1/4;
+iterador2=0;
+while i ~ 0
+    iterador2=iterador2+1
     k1=subs(yprima,{x,y},{ps(iterador2),yp})
     k2=subs(yprima,{x,y},{(ps(iterador2)+delta/2),yp+(0.5*k1*delta)})
     k3=subs(yprima,{x,y},{(ps(iterador2)+delta/2),(yp+(delta*0.5*k2))})
-    k4=subs(yprima,{x,y},{(ps(iterador2)+delta),yp+(delta*k3)}
+    k4=subs(yprima,{x,y},{(ps(iterador2)+delta),yp+(delta*k3)})
     theta=(1/6)*(k1+2*k2+2*k3+k4);
-    yn=yp+theta*delta;
-    yp=yn;
+    yn=yp+theta*delta
+    yp=yn
     i = i-1;
 end
+
+yn =
+
+   2.128946940104167
+
+y(2)=yn
