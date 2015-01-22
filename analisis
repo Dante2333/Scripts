@@ -12,7 +12,6 @@ delta = ps(2)-ps(1);
 iterador2=0;
 while i ~ 0
     iterador2=iterador2+1
-    
     yn=subs(yprima,{x,y},{ps(iterador2),yp})*delta+yp
     yp=yn
     i = i-1;
